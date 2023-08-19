@@ -46,8 +46,8 @@ class Server:
         assert index is None or 0 <= index < dataset_length, "Invalid"""
         start_index = index if index is not None else 0
         next_index = start_index + page_size
-        data = [self.indexed_dataset()[i] for i in range(
-            start_index, next_index) if i in self.indexed_dataset()]
+        data = [self.indexed_dataset()[i] for i in range(start_index, next_index)
+                if i in self.indexed_dataset()]
 
         return {
                 "index": start_index,
