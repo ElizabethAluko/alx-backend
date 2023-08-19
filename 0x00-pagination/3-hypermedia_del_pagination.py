@@ -44,7 +44,7 @@ class Server:
         dataset_length = len(self.dataset())
 
         # Make sure the index is in a valid range
-        assert index is None or 0 <= index < dataset_length, "Invalid index value"
+        assert index is None or 0 <= index < dataset_length, "Invalid"""
 
         # Calculate the current start index of the return page
         start_index = index if index is not None else 0
@@ -58,7 +58,8 @@ class Server:
 
         return {
                 "index": start_index,
-                "next_index": next_index if next_index < dataset_length else None,
+                "next_index": next_index if next_index < dataset_length
+                else None,
                 "page_size": page_size,
                 "data": data
         }
