@@ -43,16 +43,9 @@ class Server:
         """Deletion-resilient hypermedia pagination"""
         dataset_length = len(self.dataset())
 
-        # Make sure the index is in a valid range
         assert index is None or 0 <= index < dataset_length, "Invalid"""
-
-        # Calculate the current start index of the return page
         start_index = index if index is not None else 0
-
-        # Calculate the next index to query with
         next_index = start_index + page_size
-
-        # Retrieve data for the page
         data = [self.indexed_dataset()[i] for i in range(
             start_index, next_index) if i in self.indexed_dataset()]
 
