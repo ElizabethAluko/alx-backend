@@ -5,7 +5,7 @@ Deletion-resilient hypermedia pagination
 
 import csv
 import math
-from typing import List
+from typing import List, Dict, Any
 
 
 class Server:
@@ -39,25 +39,25 @@ class Server:
             }
         return self.__indexed_dataset
 
-    def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
+    def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict[str, Any]:
         """Deletion-resilient hypermedia pagination"""
-    dataset_length = len(self.dataset())
+        dataset_length = len(self.dataset())
 
-    # Make sure the index is in a valid range
-    assert index is None or 0 <= index < dataset_length, "Invalid index value"
+        # Make sure the index is in a valid range
+        assert index is None or 0 <= index < dataset_length, "Invalid index value"
 
-    # Calculate the current start index of the return page
-    start_index = index if index is not None else 0
+        # Calculate the current start index of the return page
+        start_index = index if index is not None else 0
 
-    # Calculate the next index to query with
-    next_index = start_index + page_size
+        # Calculate the next index to query with
+        next_index = start_index + page_size
 
-    # Retrieve data for the page
-    data = [self.indexed_dataset()[i] for i in range(start_index, next_index) if i in self.indexed_dataset()]
+        # Retrieve data for the page
+        data = [self.indexed_dataset()[i] for i in range(start_index, next_index) if i in self.indexed_dataset()]
 
-    return {
-        "index": start_index,
-        "next_index": next_index if next_index < dataset_length else None,
-        "page_size": page_size,
-        "data": data
-    }
+        return {
+                "index": start_index,
+                "next_index": next_index if next_index < dataset_length else None,
+                "page_size": page_size,
+                "data": data
+        }
