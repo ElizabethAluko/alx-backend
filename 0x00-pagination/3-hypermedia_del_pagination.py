@@ -54,4 +54,5 @@ class Server:
                 "index": start_index,
                 "data": data,
                 "page_size": page_size,
-                "next_index": next_index if next_index < dataset_length else None}
+                "next_index": next_index if next_index < dataset_length else None
+                }
