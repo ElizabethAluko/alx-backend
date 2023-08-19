@@ -53,7 +53,8 @@ class Server:
         next_index = start_index + page_size
 
         # Retrieve data for the page
-        data = [self.indexed_dataset()[i] for i in range(start_index, next_index) if i in self.indexed_dataset()]
+        data = [self.indexed_dataset()[i] for i in range(
+            start_index, next_index) if i in self.indexed_dataset()]
 
         return {
                 "index": start_index,
