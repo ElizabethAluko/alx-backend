@@ -51,8 +51,7 @@ class Server:
 
         return {
                 "index": start_index,
-                "next_index": next_index if next_index < dataset_length
-                else None,
+                "data": data,
                 "page_size": page_size,
-                "data": data
+                "next_index": next_index if next_index < dataset_length else None
         }
