@@ -30,7 +30,7 @@ class Server:
 
         return self.__dataset
 
-    def index_range(page, page_size):
+    def index_range(self, page, page_size):
         """returns start and end index"""
         start_index = (page - 1) * page_size
         end_index = start_index + page_size
@@ -39,10 +39,10 @@ class Server:
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """Get the page dataset"""
-        assert isinstance(page, int) and page > 0,
-        assert isinstance(page_size, int) and page_size > 0,
+        assert isinstance(page, int) and page > 0
+        assert isinstance(page_size, int) and page_size > 0
 
-        dataset = self.__dataset()
+        dataset = self.dataset()
         total_rows = len(dataset)
 
         start_index, end_index = self.index_range(page, page_size)
