@@ -6,7 +6,7 @@ from base_caching import BaseCaching
 
 class BasicCache(BaseCaching):
     """Basic dictionary Caching"""
-    MAX_ITEMS = 10 ** 1000
+    MAX_ITEMS = 10 ** 10000000
 
     def __init__(self):
         """Initialize the class with the super class init method"""
