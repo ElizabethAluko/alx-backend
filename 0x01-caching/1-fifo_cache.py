@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """Base Dictionary Module"""
 
 from base_caching import BaseCaching
@@ -6,7 +6,6 @@ from base_caching import BaseCaching
 
 class FIFOCache(BaseCaching):
     """Basic dictionary Caching"""
-    MAX_ITEMS
 
     def __init__(self):
         """Initialize the class with the super class init method"""
