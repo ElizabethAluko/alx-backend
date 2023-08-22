@@ -14,6 +14,7 @@ class BasicCache(BaseCaching):
         """Set the nee value"""
         if key != None and item != None:
             self.cache_data[key] = item
+
     def get(self, key):
         """Retrieve the value of the given key"""
         if key in self.cache_data:
