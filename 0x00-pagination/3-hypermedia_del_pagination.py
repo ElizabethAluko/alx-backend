@@ -47,12 +47,14 @@ class Server:
 
         start_index = index if index is not None else 0
         next_index = start_index + page_size
-        data = [self.indexed_dataset()[i] for i in range(start_index, next_index)
+        data = [self.indexed_dataset()[i] for i in range(
+            start_index, next_index)
                 if i in self.indexed_dataset()]
 
         return {
                 "index": start_index,
                 "data": data,
                 "page_size": page_size,
-                "next_index": next_index if next_index < dataset_length else None
+                "next_index": next_index if next_index < dataset_length
+                else None
                 }
