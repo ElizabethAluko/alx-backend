@@ -5,14 +5,14 @@ from base_caching import BaseCaching
 
 
 class BasicCache(BaseCaching):
-    """Basic dictionary Caching"""
+    """Basic dictionary Caching with BaseCaching as base"""
 
     def __init__(self):
         """Initialize the class with the super class init method"""
         super().__init__()
 
     def put(self, key, item):
-        """Set the nee value"""
+        """Set the new value of key to item"""
         if key != None and item != None:
             self.cache_data[key] = item
 
