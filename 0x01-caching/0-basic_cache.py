@@ -6,7 +6,6 @@ from base_caching import BaseCaching
 
 class BasicCache(BaseCaching):
     """Basic dictionary Caching"""
-    MAX_ITEMS = 10 ** 10000000
 
     def __init__(self):
         """Initialize the class with the super class init method"""
@@ -16,6 +15,8 @@ class BasicCache(BaseCaching):
         """Set the nee value"""
         if key != None and item != None:
             self.cache_data[key] = item
+        else:
+            pass
 
     def get(self, key):
         """Retrieve the value of the given key"""
