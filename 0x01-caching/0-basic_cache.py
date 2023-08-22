@@ -13,12 +13,12 @@ class BasicCache(BaseCaching):
 
     def put(self, key, item):
         """Set the new value of key to item"""
-        if key != None and item != None:
+        if key is not None and item is not None:
             self.cache_data[key] = item
 
     def get(self, key):
         """Retrieve the value of the given key"""
         if key in self.cache_data:
-            return(self.cache_data[key])
+            return (self.cache_data[key])
         else:
             return None
