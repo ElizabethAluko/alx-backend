@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """Base Dictionary Module"""
+
 from base_caching import BaseCaching
 
 
