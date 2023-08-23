@@ -14,8 +14,11 @@ class LIFOCache(BaseCaching):
     def put(self, key, item):
         """Set the nee value"""
         if key is not None and item is not None:
+            if key in self.cache_data:
+                del self.cache_data[key]
+
             if len(self.cache_data) >= super().MAX_ITEMS:
-                last_key, item = self.cache_data.popitem()
+                last_key, last_item = self.cache_data.popitem()
                 print('DISCARD: {}'.format(last_key))
             self.cache_data[key] = item
 
