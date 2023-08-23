@@ -18,16 +18,16 @@ class LRUCache(BaseCaching):
         elif key in self.cache_data:
             del self.cache_data[key]
 
-        elif len(self.cache_data) >= super().MAX_ITEMS:
+        elif len(self.cache_data) > super().MAX_ITEMS:
             first_key, _ = next(iter(self.cache_data.items()))
-            del self.cache_data[first_key]
             print('DISCARD: {}'.format(first_key))
         self.cache_data[key] = item
 
     def get(self, key):
         """Retrieve the value of the given key"""
         if key in self.cache_data:
-            item = self.cache_data.pop(key)
+            item = self.cache_data[key]
+            del self.cache_data[key]
             self.cache_data[key] = item
             return (self.cache_data[key])
 
