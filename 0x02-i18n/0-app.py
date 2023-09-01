@@ -13,4 +13,4 @@ def index():
 
 
 if __name__ == '__main__':
-    0-app.run()
+    app.run()
