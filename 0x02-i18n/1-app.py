@@ -16,3 +16,13 @@ class Config:
 
 
 app.config.from_object(Config)
+
+
+@app.route('/')
+def index():
+    """Renders index page to the browser"""
+    return render_template('1-index.html')
+
+
+if __name__ == '__main__':
+    1-app.run()
